@@ -93,7 +93,7 @@ graph TD
 - **Extreme Risk Override**: LLM flags extreme risk -> force sell
 - **Emergency RSI Override**: RSI > 75 forces sell regardless of score
 - **MACD Momentum Gate**: Buy only when MACD is improving day-over-day
-- **Position Sizing**: 2% of remaining capital per buy (regression-optimized)
+- **Position Sizing**: 15% of remaining capital per buy (tuned for return/Sharpe balance)
 - **Aggressive sell triggers**: Mild sell fires even at slightly positive scores (5.87) when RSI > 45.4
 
 ## Backtest Results
@@ -102,12 +102,12 @@ graph TD
 
 | Metric | Value |
 |--------|-------|
-| Sharpe Ratio | **4.7036** |
-| Total Return | **+1.14%** |
-| Max Drawdown | **-0.20%** |
+| Sharpe Ratio | **4.4930** |
+| Total Return | **+4.81%** |
+| Max Drawdown | **-0.80%** |
 | Win Rate | **83.3%** (5/6 sells) |
 | Total Trades | 18 (12 buys, 6 sells) |
-| Final Value | $10,114.35 |
+| Final Value | $10,481.15 |
 
 ### V1 (Grid Search) — Previous
 
@@ -123,11 +123,11 @@ graph TD
 
 | Metric | V1 | V2 | Change |
 |--------|----|----|--------|
-| Sharpe Ratio | 1.86 | **4.70** | **+152%** |
-| Total Return | +3.37% | +1.14% | -2.23% |
-| Max Drawdown | -0.46% | **-0.20%** | +57% better |
+| Sharpe Ratio | 1.86 | **4.49** | **+141%** |
+| Total Return | +3.37% | **+4.81%** | +1.44% |
+| Max Drawdown | -0.46% | **-0.80%** | slightly worse |
 | Win Rate | 83% | 83.3% | ~same |
-| Position Size | 5% | **2%** | 60% smaller |
+| Position Size | 5% | **15%** | 3x larger |
 
 ## Analysis
 
