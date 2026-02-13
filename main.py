@@ -4,6 +4,7 @@ Uses OpenRouter API (Gemini 3 Flash Preview) for news sentiment analysis
 Combined with 7-component technical scoring system
 """
 
+import os
 import pandas as pd
 import requests
 import json
@@ -12,12 +13,15 @@ import math
 import sys
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ============================================================
 # CONFIGURATION
 # ============================================================
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 MODEL = "google/gemini-2.5-flash-lite"
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
